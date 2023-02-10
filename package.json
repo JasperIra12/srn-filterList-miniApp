@@ -9,17 +9,7 @@
   "source": "src/index",
   "files": [
     "src",
-    "lib",
-    "android",
-    "ios",
-    "cpp",
-    "srn-filter-list.podspec",
-    "!lib/typescript/example",
-    "!android/build",
-    "!ios/build",
-    "!**/__tests__",
-    "!**/__fixtures__",
-    "!**/__mocks__"
+    "lib"
   ],
   "scripts": {
     "test": "jest",
@@ -63,7 +53,7 @@
     "pod-install": "^0.1.0",
     "prettier": "^2.0.5",
     "react": "17.0.2",
-    "react-native": "0.68.2",
+    "react-native": "0.66.4",
     "react-native-builder-bob": "^0.18.2",
     "release-it": "^15.0.0",
     "typescript": "^4.5.2"
@@ -148,5 +138,8 @@
         }
       ]
     ]
+  },
+  "dependencies": {
+    "@types/lodash": "^4.14.191"
   }
 }

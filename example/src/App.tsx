@@ -1,31 +1,55 @@
-import * as React from 'react';
+import { Text, View, StyleSheet, FlatList } from 'react-native';
+import React, { useState } from 'react';
+import { FilterListMAPP } from 'srn-filter-list';
 
-import { StyleSheet, View, Text } from 'react-native';
-import { multiply } from 'srn-filter-list';
-
-export default function App() {
-  const [result, setResult] = React.useState<number | undefined>();
-
-  React.useEffect(() => {
-    multiply(3, 7).then(setResult);
-  }, []);
+const App = () => {
+  const data = [
+    { name: 'Green Valley', buttonName: 'Restaurant' },
+    { name: 'Super Mart', buttonName: 'Grocery' },
+    { name: 'Pizza Palace', buttonName: 'Pizza Shop' },
+    { name: 'Angels Burger', buttonName: 'Bread Shop' },
+  ];
+  const [dataOutData, setDataOutData] = useState<any>([]);
+  const buttonData = (value: any) => {
+    if (value.length == 0) {
+      setDataOutData(new Array());
+    } else if (value.length == 1) {
+      setDataOutData([...dataOutData, value[0]]);
+    } else {
+      setDataOutData([value[0]]);
+    }
+  };
 
   return (
-    <View style={styles.container}>
-      <Text>Result: {result}</Text>
-    </View>
+    <>
+      <FilterListMAPP
+        dataIn={{
+          multiSelect: true,
+          showAllButton: true,
+          sameWidth: true,
+        }}
+        dataLoad={data}
+        dataOut={(value: any) => buttonData(value)}
+      />
+      <FlatList
+        data={dataOutData}
+        renderItem={({ item }) => (
+          <View style={styles.listItem}>
+            <Text>{item.name}</Text>
+            <Text>{item.buttonName}</Text>
+          </View>
+        )}
+      />
+    </>
   );
-}
+};
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  box: {
-    width: 60,
-    height: 60,
-    marginVertical: 20,
+  listItem: {
+    padding: 10,
+    marginVertical: 10,
+    backgroundColor: '#f0f0f0',
+    borderRadius: 10,
   },
 });
+export default App;
