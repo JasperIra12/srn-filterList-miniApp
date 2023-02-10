@@ -24,8 +24,8 @@ const App = () => {
     <>
       <FilterListMAPP
         dataIn={{
-          multiSelect: true,
-          showAllButton: true,
+          // multiSelect: true,
+          // showAllButton: true,
           sameWidth: true,
         }}
         dataLoad={data}

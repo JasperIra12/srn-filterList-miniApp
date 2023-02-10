@@ -38,11 +38,10 @@ const FilterScreen = ({ dataIn, dataLoad, dataOut }: Props) => {
               alignItems: 'center',
               padding: 5,
               backgroundColor: activeIndex.includes(index)
-                ? '#B2D465'
-                : 'transparent',
-
+                ? dataIn.activeColor || '#B2D465'
+                : dataIn.inActiveColor || '#ffffff',
               borderWidth: 1,
-              borderColor: '#B2D465',
+              borderColor: dataIn.buttonBorderColor || '#B2D465',
               ...(dataIn.sameWidth ? { width: 90 } : {}),
             }}
             onPress={() => handlePress({ item, index })}
