@@ -1,6 +1,7 @@
 export type ListDataLoad = {
     name: string;
-    buttonName: string
+    buttonName: string,
+    isSelected: boolean
 
 
 };

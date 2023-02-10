@@ -5,8 +5,7 @@ export type FilterListDataIn = {
     multiSelect?: boolean
     containerStyle?: StyleProp<ViewStyle>
     sameWidth?: true
-    activeColor?: string
-    inActiveColor?: string
-    buttonBorderColor?: string
+    activeButtonStyle?: StyleProp<ViewStyle>
+    inActiveButtonStyle?: StyleProp<ViewStyle>
 
 };

@@ -8,27 +8,45 @@ type Props = {
 };
 
 export const useViewModel = ({ dataIn, dataLoad, dataOut }: Props) => {
-    const [activeIndex, setActiveIndex] = useState<number[]>([0]);
+    const [data, setData] = useState(dataLoad)
 
-    const handlePress = ({ item, index }: any) => {
-        if (item.buttonName === 'All') {
-            setActiveIndex([0]);
-            dataOut([]);
-        } else if (dataIn.multiSelect) {
-            setActiveIndex([...activeIndex, index]);
-            dataOut([item]);
-        } else {
-            setActiveIndex([index]);
-            dataOut([item, index]);
-        }
+    const handlePress = (item: string) => {
+
+        const updatedData = data.map((selected: any) => {
+            if (item === 'All') {
+                const { isSelected } = selected
+                if (isSelected) {
+                    return selected
+                } else {
+                    return { ...selected, isSelected: !isSelected };
+                }
+
+            } else if (dataIn.multiSelect) {
+                if (selected.buttonName === item) {
+                    return { ...selected, isSelected: true };
+                }
+                return selected;
+            } else {
+                if (selected.buttonName !== item && selected.isSelected === true) {
+                    return { ...selected, isSelected: false };
+                }
+                if (selected.buttonName === item) {
+                    return { ...selected, isSelected: true };
+                }
+                return selected;
+            }
+
+        });
+        setData(updatedData);
+
+        console.log(item)
     };
 
     const buttons = dataIn.showAllButton
-        ? [{ buttonName: 'All' }, ...dataLoad]
-        : dataLoad;
+        ? [{ buttonName: 'All', isSelected: false }, ...data]
+        : data;
 
     return {
-        activeIndex,
         handlePress,
         buttons
     };
