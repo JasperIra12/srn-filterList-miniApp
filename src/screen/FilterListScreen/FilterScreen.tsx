@@ -12,7 +12,6 @@ import type {
   FilterListDataOut,
 } from 'src/types';
 import { useViewModel } from './useViewModel';
-// import _ from 'lodash';
 
 type Props = {
   dataIn: FilterListDataIn;
@@ -21,7 +20,7 @@ type Props = {
 };
 
 const FilterScreen = ({ dataIn, dataLoad, dataOut }: Props) => {
-  const { handlePress, buttons } = useViewModel({
+  const { handlePress, buttons, allIsSelected } = useViewModel({
     dataIn,
     dataLoad,
     dataOut,
@@ -38,9 +37,12 @@ const FilterScreen = ({ dataIn, dataLoad, dataOut }: Props) => {
         renderItem={({ item }) => (
           <TouchableOpacity
             style={
-              item.isSelected === true
+              allIsSelected || item.isSelected === true
                 ? [
                     {
+                      ...(item.buttonName === 'All' && !dataIn.sameWidth
+                        ? { width: 60 }
+                        : {}),
                       ...(dataIn.sameWidth ? { width: 90 } : {}),
                     },
                     styles.activeButtonDefaultStyle,
@@ -48,13 +50,16 @@ const FilterScreen = ({ dataIn, dataLoad, dataOut }: Props) => {
                   ]
                 : [
                     {
+                      ...(item.buttonName === 'All' && !dataIn.sameWidth
+                        ? { width: 60 }
+                        : {}),
                       ...(dataIn.sameWidth ? { width: 90 } : {}),
                     },
                     styles.inActiveButtonDefaultStyle,
                     dataIn.inActiveButtonStyle,
                   ]
             }
-            onPress={() => handlePress(item.buttonName)}
+            onPress={() => handlePress(item)}
           >
             <Text>{item.buttonName}</Text>
           </TouchableOpacity>

@@ -4,7 +4,7 @@ export type FilterListDataIn = {
     showAllButton?: boolean
     multiSelect?: boolean
     containerStyle?: StyleProp<ViewStyle>
-    sameWidth?: true
+    sameWidth?: boolean
     activeButtonStyle?: StyleProp<ViewStyle>
     inActiveButtonStyle?: StyleProp<ViewStyle>
 

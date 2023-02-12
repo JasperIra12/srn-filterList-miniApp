@@ -13,7 +13,6 @@ const App = () => {
     <>
       <FilterListMAPP
         dataIn={{
-          activeButtonStyle: { backgroundColor: 'pink', borderColor: 'purple' },
           multiSelect: true,
           showAllButton: true,
           sameWidth: true,
