@@ -3,10 +3,10 @@ import { FilterListMAPP } from 'srn-filter-list';
 
 const App = () => {
   const data = [
-    { name: 'Green Valley', buttonName: 'Restaurant', isSelected: false },
-    { name: 'Super Mart', buttonName: 'Grocery', isSelected: false },
-    { name: 'Pizza Palace', buttonName: 'Pizza Shop', isSelected: false },
-    { name: 'Angels Burger', buttonName: 'Bread Shop', isSelected: false },
+    { value: 'Green Valley', buttonName: 'Restaurant', isSelected: false },
+    { value: 'Super Mart', buttonName: 'Grocery', isSelected: false },
+    { value: 'Pizza Palace', buttonName: 'Pizza Shop', isSelected: false },
+    { value: 'Angels Burger', buttonName: 'Bread Shop', isSelected: false },
   ];
 
   return (

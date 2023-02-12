@@ -1,31 +1,55 @@
-# srn-filter-list
+# test-mini-app
 
-button that filter data
+bootcamp
 
 ## Installation
 
 ```sh
-npm install srn-filter-list
+npm install test-mini-app
 ```
 
-## Usage
+## Changelogs
 
-```js
-import { multiply } from "srn-filter-list";
-
-// ...
-
-const result = await multiply(3, 7);
+```Changes per version
+v0.1.1 - add the dataIn, dataLoad, and dataOut props in readme
+v0.1.0 - miniapp first publish
 ```
 
-## Contributing
+## FilterList Mini App DataIn Props
 
-See the [contributing guide](CONTRIBUTING.md) to learn how to contribute to the repository and the development workflow.
+| Prop                       | Required | Type         | Description                                  |
+| :------------------------- | :------- | :----------- | :------------------------------------------- |
+| **`showAllButton`**        | No       | `Boolean`    | if true, 'All' button will show              |
+| **`multiSelect`**          | No       | `Boolean`    | if true, you can select two or more buttons  |
+| **`sameWidth`**            | No       | `Boolean`    | if true, all button will have the same width |
+| **`activeButtonStyle`**    | No       | `View Style` | View style for all active buttons            |
+| **` inActiveButtonStyle`** | No       | `View Style` | View style for all inactive buttons          |
+
+        |
+
+## FilterList Data Load Props
+
+| Prop             | Type    |
+| :--------------- | :------ |
+| **`value`**      | string  |
+| **`buttonName`** | string  |
+| **`isSelected`** | boolean |
+
+## Horizontal and Vertical Data Out Props
+
+| Prop                    | Required | Type         | Description          |
+| :---------------------- | :------- | :----------- | :------------------- |
+| **`FilterListDataOut`** | Yes      | `() => void` | Button onClick event |
+
+## Example
+
+Run the following commands
+
+`npm run boostrap`:setup project by installing all dependencies and pods.
+`npm run example run start`: start the Metro server for the example app.
+`npm run example run android`: run the example app on Android.
+`npm run example run ios`: run the example app on iOS.
 
 ## License
 
 MIT
-
----
-
-Made with [create-react-native-library](https://github.com/callstack/react-native-builder-bob)
