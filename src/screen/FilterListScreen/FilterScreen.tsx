@@ -64,8 +64,8 @@ const FilterScreen = ({ dataIn, dataLoad, dataOut }: Props) => {
             <Text
               style={
                 item.isSelected === true
-                  ? [dataIn.inActiveButtonStyle]
-                  : [dataIn.activeButtonTextStyle]
+                  ? [dataIn.activeButtonStyle]
+                  : [dataIn.inActiveButtonTextStyle]
               }
             >
               {item.buttonName}
