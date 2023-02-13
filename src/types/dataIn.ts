@@ -1,4 +1,4 @@
-import type { StyleProp, ViewStyle } from 'react-native';
+import type { StyleProp, ViewStyle, TextStyle } from 'react-native';
 
 export type FilterListDataIn = {
     showAllButton?: boolean
@@ -6,5 +6,6 @@ export type FilterListDataIn = {
     sameWidth?: boolean
     activeButtonStyle?: StyleProp<ViewStyle>
     inActiveButtonStyle?: StyleProp<ViewStyle>
-
+    activeButtonTextStyle?: StyleProp<TextStyle>
+    inActiveButtonTextStyle?: StyleProp<TextStyle>
 };

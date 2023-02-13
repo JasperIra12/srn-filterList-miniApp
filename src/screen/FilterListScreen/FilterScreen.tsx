@@ -20,7 +20,7 @@ type Props = {
 };
 
 const FilterScreen = ({ dataIn, dataLoad, dataOut }: Props) => {
-  const { handlePress, buttons, allIsSelected } = useViewModel({
+  const { handlePress, buttons } = useViewModel({
     dataIn,
     dataLoad,
     dataOut,
@@ -37,7 +37,7 @@ const FilterScreen = ({ dataIn, dataLoad, dataOut }: Props) => {
         renderItem={({ item }) => (
           <TouchableOpacity
             style={
-              allIsSelected || item.isSelected === true
+              item.isSelected === true
                 ? [
                     {
                       ...(item.buttonName === 'All' && !dataIn.sameWidth
@@ -61,7 +61,15 @@ const FilterScreen = ({ dataIn, dataLoad, dataOut }: Props) => {
             }
             onPress={() => handlePress(item)}
           >
-            <Text>{item.buttonName}</Text>
+            <Text
+              style={
+                item.isSelected === true
+                  ? [dataIn.inActiveButtonStyle]
+                  : [dataIn.activeButtonTextStyle]
+              }
+            >
+              {item.buttonName}
+            </Text>
           </TouchableOpacity>
         )}
       />
