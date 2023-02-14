@@ -20,11 +20,12 @@ type Props = {
 };
 
 const FilterButton = ({ dataIn, dataLoad, dataOut }: Props) => {
-  const { handlePress, handleAllSelect, buttons, allIsSelect } = useViewModel({
-    dataIn,
-    dataLoad,
-    dataOut,
-  });
+  const { handlePress, handleAllSelect, buttonList, allIsSelect } =
+    useViewModel({
+      dataIn,
+      dataLoad,
+      dataOut,
+    });
 
   const renderItem = ({ item, i }: any) => {
     return (
@@ -56,7 +57,7 @@ const FilterButton = ({ dataIn, dataLoad, dataOut }: Props) => {
 
   const allButton = {
     text: 'All',
-    isSelected: allIsSelect || buttons.every((button) => button.isSelected),
+    isSelected: allIsSelect || buttonList.every((button) => button.isSelected),
     onPress: handleAllSelect,
     style:
       allIsSelect === true
@@ -69,11 +70,11 @@ const FilterButton = ({ dataIn, dataLoad, dataOut }: Props) => {
       {dataIn.showAllButton ? (
         <FlatList
           horizontal
-          data={[allButton, ...buttons]}
+          data={[allButton, ...buttonList]}
           renderItem={renderItem}
         />
       ) : (
-        <FlatList horizontal data={buttons} renderItem={renderItem} />
+        <FlatList horizontal data={buttonList} renderItem={renderItem} />
       )}
     </View>
   );

@@ -93,14 +93,14 @@ export const useViewModel = ({ dataIn, dataLoad, dataOut }: Props) => {
         }
     };
 
-    const buttons = data.map((item: any) => ({
+    const buttonList = data.map((item: any) => ({
         text: item.text,
         isSelected: item.isSelected,
     }));
 
     return {
         handlePress,
-        buttons,
+        buttonList,
         handleAllSelect,
         allIsSelect
     };
