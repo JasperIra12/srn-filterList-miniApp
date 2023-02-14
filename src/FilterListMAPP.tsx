@@ -4,7 +4,7 @@ import type {
   FilterListDataLoad,
   FilterListDataOut,
 } from './types';
-import FilterScreen from './screen/FilterListScreen/FilterScreen';
+import FilterButton from './component/FilterButton/FilterButton';
 
 type Props = {
   dataLoad: FilterListDataLoad;
@@ -13,7 +13,7 @@ type Props = {
 };
 
 const FilterListMAPP = ({ dataLoad, dataIn, dataOut }: Props) => {
-  return <FilterScreen dataIn={dataIn} dataLoad={dataLoad} dataOut={dataOut} />;
+  return <FilterButton dataIn={dataIn} dataLoad={dataLoad} dataOut={dataOut} />;
 };
 
 export default FilterListMAPP;

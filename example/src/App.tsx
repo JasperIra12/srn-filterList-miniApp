@@ -3,17 +3,17 @@ import { FilterListMAPP } from 'srn-filter-list';
 
 const App = () => {
   const data = [
-    { value: 'Green Valley', buttonName: 'Restaurant', isSelected: false },
-    { value: 'Super Mart', buttonName: 'Grocery', isSelected: false },
-    { value: 'Pizza Palace', buttonName: 'Pizza Shop', isSelected: false },
-    { value: 'Angels Burger', buttonName: 'Bread Shop', isSelected: false },
+    { id: 1, value: 'Green Valley', text: 'Restaurant', isSelected: false },
+    { id: 2, value: 'Super Mart', text: 'Grocery', isSelected: false },
+    { id: 3, value: 'Pizza Palace', text: 'Pizza Shop', isSelected: false },
+    { id: 4, value: 'Angels Burger', text: 'Bread Shop', isSelected: false },
   ];
 
   return (
     <>
       <FilterListMAPP
         dataIn={{
-          multiSelect: true,
+          multiSelect: false,
           showAllButton: true,
           sameWidth: true,
         }}
